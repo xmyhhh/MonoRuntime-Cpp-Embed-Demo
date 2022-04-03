@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="C#">
+      <UniqueIdentifier>{3eafe4da-6002-4440-89db-994bd076b927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cpp">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="monolib">
+      <UniqueIdentifier>{ed6ec139-96be-4eb2-b268-dcdc1e1da8fc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MainTest.cs">
+      <Filter>C#</Filter>
+    </None>
+    <None Include="..\dependency\mono\lib\mono-2.0-sgen.dll">
+      <Filter>monolib</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
