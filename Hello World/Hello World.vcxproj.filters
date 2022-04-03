@@ -23,6 +23,5 @@
     <None Include="MainTest.cs">
       <Filter>源文件</Filter>
     </None>
-    <None Include="Readme.md" />
   </ItemGroup>
 </Project>
