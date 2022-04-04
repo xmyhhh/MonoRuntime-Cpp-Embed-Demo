@@ -4,7 +4,7 @@
 #include <mono/metadata/debug-helpers.h>
 #include <mono/metadata/mono-config.h>
 #include <string>
-#include <Windows.h>// 用于运行时加载DLL库
+
 struct Component
 {
 	int id;
@@ -54,13 +54,7 @@ int main(int argc, const char* argv[])
 
 	std::string monoLibPath = MonoPath + "/lib";
 	std::string monoEtcPath = MonoPath + "/etc";
-	//// 运行时加载mono-2.0-sgen.dll库
-	//HMODULE module = LoadLibrary((monoLibPath + "/mono-2.0-sgen.dll").c_str());//因为设置成了“使用Unicode字符集”,所以前面要加L
-	//if (module == NULL)
-	//{
-	//	printf("加载mono-2.0-sgen.dll动态库失败\n");
-	//	return 0;
-	//}
+
 	mono_set_dirs(monoLibPath.c_str(), monoEtcPath.c_str());
 
 
@@ -105,8 +99,6 @@ int main(int argc, const char* argv[])
 	delete[] Components;
 
 
-	while (true) {
-		
-	}
+
 	return 0;
 }
