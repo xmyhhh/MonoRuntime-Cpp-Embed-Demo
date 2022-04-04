@@ -10,7 +10,7 @@ A demo of a c++ embedded Mono runtime calling C# exposed methods for studying th
 > Note that I have copied the Mono x64 runtime library to the `\dependency\mono` directory, so only the C++ code can be compiled without installing Mono.
 I have compiled the C# code in advance to generate MainTest.dll, so you still need to install Mono in order to recompile the C# code.
 
-## Compiler's Guide
+## Compiler Guide
 ### C++ compile to generate exe needs to be configured as follows.
 
 * Compile include:
@@ -33,7 +33,7 @@ I have compiled the C# code in advance to generate MainTest.dll, so you still ne
 
 ## Running Guide
 If you encounter the error that the dll cannot be found, here I list a few possible solutions
-#### How can I solve the problem of not finding mono-2.0-sgen.dll?
+#### How to solve the problem of not finding mono-2.0-sgen.dll?
 
 The file `mono-2.0-sgen.dll` is actually in the `\dependency\mono\lib` directory, a few solutions.
 * Install Mono: `mono-2.0-sgen.dll` will be registered in the system when you install Mono, and the program can find the dll automatically, as follows
