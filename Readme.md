@@ -1,19 +1,20 @@
-## 简介
+## Introduction
 
-一个 c++嵌入 Mono 运行时调用 C#暴露的方法的 demo，用于研究 Unity 引擎的脚本机制
+A demo of a c++ embedded Mono runtime calling C# exposed methods for studying the scripting mechanism of the Unity engine
 
-## 依赖
+[�����ĵ�](./Readme_chinese.md_)
+## Dependencies
 
-- Mono [下载地址](http://www.mono-project.com/download/)
+- Mono [download address](http://www.mono-project.com/download/)
 
->注意，我已经把 Mono 的 x64 运行库相关文件拷贝到了`\dependency\mono` 目录下，因此仅编译C++代码可以不用安装 Mono。
-C#代码我已经提前编译好生成MainTest.dll了，要想重新编译C#代码仍然需要安装 Mono
+> Note that I have copied the Mono x64 runtime library to the `\dependency\mono` directory, so only the C++ code can be compiled without installing Mono.
+I have compiled the C# code in advance to generate MainTest.dll, so you still need to install Mono in order to recompile the C# code.
 
-## 编译指南
-### C++编译生成exe需要配置如下：
+## Compiler's Guide
+### C++ compile to generate exe needs to be configured as follows.
 
 * Compile include:
-`\dependency\mono\include\mono-2.0`
+\\dependency\mono\include\mono-2.0`
 
 * Linker lib path:
 `\dependency\mono\lib`
@@ -22,25 +23,24 @@ C#代码我已经提前编译好生成MainTest.dll了，要想重新编译C#代�
 `mono-2.0-sgen.lib`
 
 
-### C#编译生成dll (On Windows)
-* 安装Mono以后，把`\Mono\bin`文件夹添加到环境变量的PATH中
-> 64位安装完成后将在：C:\Program Files\Mono\bin。32位在C:\Program Files (x86)\Mono\bin
-* 在cmd中进入到存放Program.cs文件的目录
+### C# compile to generate dll (On Windows)
+* After installing Mono, add the \Mono\bin` folder to the PATH of the environment variable
+* 64-bit installation will be completed in: C:\Program Files\Mono\bin. 32-bit in C:\Program Files (x86)\Mono\bin
+* In cmd go to the directory where the Program.cs file is stored
   
 * mcs Program.cs -t:library
 
 
-## 运行指南
-如果遇到找不到dll的错误，这里我列出几个可能的解决方案
-#### 如何解决找不到mono-2.0-sgen.dll？
+## Running Guide
+If you encounter the error that the dll cannot be found, here I list a few possible solutions
+#### How can I solve the problem of not finding mono-2.0-sgen.dll?
 
-`mono-2.0-sgen.dll`这个文件其实就在`\dependency\mono\lib`目录下，几个解决方法：
-* 安装Mono：安装Mono的时候`mono-2.0-sgen.dll`会被注册在系统中，程序可以自动找到dll，如下
-`“Simple-Demo.exe”(Win32): 已加载“C:\Program Files\Mono\bin\mono-2.0-sgen.dll”。已加载符号。` 如果你不想安装Mono，可以采取下面的方法
+The file `mono-2.0-sgen.dll` is actually in the `\dependency\mono\lib` directory, a few solutions.
+* Install Mono: `mono-2.0-sgen.dll` will be registered in the system when you install Mono, and the program can find the dll automatically, as follows
+`"Simple-Demo.exe"(Win32): "C:\Program Files\Mono\bin\mono-2.0-sgen.dll" has been loaded. Symbols have been loaded. \ If you don't want to install Mono, you can take the following approach
 
-* 把mono-2.0-sgen.dll复制到和`Simple-Demo.vcxproj`同目录：vs studio在调试的时候，会把`.vcxproj`文件所在的目录加入调试对象的环境，这样`mono-2.0-sgen.dll`就可以被找到，在我这里可以看到程序正常加载dll`“Simple-Demo.exe”(Win32): 已加载“C:\Users\xmy\Desktop\MonoRuntime-Cpp-Embed-Demo\Simple-Demo\mono-2.0-sgen.dll”`
+* Copy mono-2.0-sgen.dll to the same directory as `Simple-Demo.vcxproj`: vs studio will add the directory where the `.vcxproj` file is located to the debug object's environment when debugging, so that `mono-2.0-sgen.dll` can be found and you can see the program in my case Normal loading dll `"Simple-Demo.exe"(Win32): loaded "C:\Users\xmy\Desktop\MonoRuntime-Cpp-Embed-Demo\Simple- Demo\mono-2.0-sgen.dll"`
 
-#### 如何解决找不到mscorlib.dll？
-* `mono_set_dirs(monoLibPath.c_str(), monoEtcPath.c_str())`设置的目录不对，第一个参数请设置为`/dependency/mono/lib`
-
+#### How to solve the problem of not finding mscorlib.dll?
+* The directory set by `mono_set_dirs(monoLibPath.c_str(), monoEtcPath.c_str())` is not correct, please set the first parameter to `/dependency/mono/lib`
 
