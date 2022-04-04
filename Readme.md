@@ -2,7 +2,7 @@
 
 A demo of a c++ embedded Mono runtime calling C# exposed methods for studying the scripting mechanism of the Unity engine
 
-[中文文档](./Readme_chinese.md_)
+[中文文档](./Readme_chinese.md)
 ## Dependencies
 
 - Mono [download address](http://www.mono-project.com/download/)
