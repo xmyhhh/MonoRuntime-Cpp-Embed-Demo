@@ -7,7 +7,7 @@
 - Mono [下载地址](http://www.mono-project.com/download/)
 
 >注意，我已经把 Mono 的 x64 运行库相关文件拷贝到了`\dependency\mono` 目录下，因此仅编译C++代码可以不用安装 Mono。
-C#代码我已经提前编译好生成MainTest.dll了，要想重新编译C#代码任然需要安装 Mono
+C#代码我已经提前编译好生成MainTest.dll了，要想重新编译C#代码仍然需要安装 Mono
 
 ## 编译指南
 ### C++编译生成exe需要配置如下：
