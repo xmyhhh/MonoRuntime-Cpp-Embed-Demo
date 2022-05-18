@@ -47,18 +47,11 @@ MonoArray* ManagedLibrary_Component_GetComponents()
 
 int main(int argc, const char* argv[])
 {
-
-	
 	// 设置搜索路径，用于搜索mscorlib.dll
 	std::string MonoPath = "../dependency/mono";
-
 	std::string monoLibPath = MonoPath + "/lib";
 	std::string monoEtcPath = MonoPath + "/etc";
-
 	mono_set_dirs(monoLibPath.c_str(), monoEtcPath.c_str());
-
-
-
 	mono_config_parse(NULL);
 
 	//获取应用域 
@@ -90,15 +83,11 @@ int main(int argc, const char* argv[])
 	MonoMethodDesc* managed_method_desc = mono_method_desc_new("ManagedLibrary.Main:TestComponent()", include_namespace);
 	MonoMethod* managed_method = mono_method_desc_search_in_class(managed_method_desc, main_class);
 	mono_method_desc_free(managed_method_desc);
-
 	mono_runtime_invoke(managed_method, NULL, NULL, NULL);
 
 	//清理mono环境
 	mono_jit_cleanup(domain);
 
 	delete[] Components;
-
-
-
 	return 0;
 }
