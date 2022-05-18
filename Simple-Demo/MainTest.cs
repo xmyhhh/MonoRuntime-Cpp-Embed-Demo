@@ -4,24 +4,19 @@ namespace ManagedLibrary
 {
     public class Component
     {
-        //字段
+        //脳脰露脦
         private IntPtr native_handle = (IntPtr)0;
         
-        
-        //方法
+        //路陆路篓
         [MethodImpl(MethodImplOptions.InternalCall)]
         public extern static Component[] GetComponents();
         [MethodImpl(MethodImplOptions.InternalCall)]
         public extern static int get_id_Internal(IntPtr native_handle);
         
-        
-        //属性
+        //脢么脨脭
         public int ID
         {
-            get
-            {
-                return get_id_Internal(this.native_handle);
-            }
+            get{return get_id_Internal(this.native_handle);}
         }
         public int Tag
         {
@@ -29,7 +24,7 @@ namespace ManagedLibrary
             get;
         }
     }
-
+    
     public static class Main
     {
         public static void TestComponent()
